@@ -1,0 +1,35 @@
+.base {
+  display: flex;
+  flex-direction: column;
+  min-width: 50px;
+}
+
+.label {
+  letter-spacing: 2%;
+}
+
+input {
+  padding: 10px 0 0;
+}
+
+.label,
+input {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+
+  color: rgb(0, 0, 0);
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
