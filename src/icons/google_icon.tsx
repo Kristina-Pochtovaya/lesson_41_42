@@ -1,16 +1,20 @@
+import clsx from 'clsx';
+
 export type GoogleIconProps = {
-  className?: string;
+  classNames?: {
+    base?: string;
+    fill?: string;
+  };
 };
 
-export function GoogleIcon({ className }: GoogleIconProps) {
+export function GoogleIcon({ classNames }: GoogleIconProps) {
   return (
     <svg
-      className={className}
+      className={clsx(classNames?.base, classNames?.fill)}
       width="24px"
       height="24px"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
-      fill="#fff"
     >
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
@@ -31,7 +35,7 @@ export function GoogleIcon({ className }: GoogleIconProps) {
           <g
             id="Dribbble-Light-Preview"
             transform="translate(-300.000000, -7399.000000)"
-            fill="#fff"
+            className={classNames?.fill}
           >
             <g id="icons" transform="translate(56.000000, 160.000000)">
               <path

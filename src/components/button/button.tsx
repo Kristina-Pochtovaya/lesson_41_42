@@ -5,7 +5,8 @@ import { themes } from '../../common';
 
 type CommonProps = {
   title: string;
-  theme?: keyof typeof themes;
+  handleClick: () => void;
+  theme: keyof typeof themes;
   classNames?: {
     button?: string;
     title?: string;
@@ -26,6 +27,7 @@ type ButtonProps = PropsWithIcon | PropsWithoutIcon;
 
 export function Button({
   title,
+  handleClick,
   hasIcon = false,
   theme = themes.dark,
   icon,
@@ -34,6 +36,7 @@ export function Button({
   return (
     <button
       type="button"
+      onClick={handleClick}
       className={clsx(
         styles.base,
         styles[`base__${theme}`],

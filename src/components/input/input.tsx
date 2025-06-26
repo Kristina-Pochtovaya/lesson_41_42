@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import styles from './input.module.scss';
+import {
+  inputIds,
+  InputValuesType,
+} from '../registration_form/registration_form';
+import { themes } from '../../common';
 
 export const inputTypes = {
   text: 'text',
@@ -9,31 +14,38 @@ export const inputTypes = {
 } as const;
 
 export type InputProps = {
-  id: string;
+  theme: keyof typeof themes;
+  id: keyof typeof inputIds;
   title: string;
-  initilaValue?: string;
-  type?: keyof typeof inputTypes;
+  handleChange: (value: InputValuesType) => void;
+  value: InputValuesType;
+  type: keyof typeof inputTypes;
   className?: string;
 };
 
 export function Input({
+  theme,
   id,
   title,
-  type = inputTypes.text,
-  initilaValue = '',
+  handleChange,
+  type,
+  value,
   className,
 }: InputProps) {
-  const [value, setValue] = useState(initilaValue);
-
   return (
     <div className={clsx(styles.base, className)}>
-      <label htmlFor={id}>{title}</label>
+      <label
+        className={clsx(styles.label, styles[`label__${theme}`])}
+        htmlFor={id}
+      >
+        {title}
+      </label>
       <input
         id={id}
         type={type}
-        value={value}
+        value={value[id]}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setValue(e.target.value)
+          handleChange({ ...value, [id]: e.target.value })
         }
       />
     </div>

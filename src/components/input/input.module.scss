@@ -2,14 +2,31 @@
   display: flex;
   flex-direction: column;
   min-width: 50px;
+
+  &__dark {
+    color: rgb(0, 0, 0);
+  }
+
+  &__light {
+    color: rgb(255, 255, 255);
+  }
 }
 
 .label {
   letter-spacing: 2%;
+
+  &__dark {
+    color: rgb(0, 0, 0);
+  }
+
+  &__light {
+    color: rgb(255, 255, 255);
+  }
 }
 
 input {
   padding: 10px 0 0;
+  color: rgb(0, 0, 0);
 }
 
 .label,
@@ -17,8 +34,6 @@ input {
   font-weight: 400;
   font-size: 16px;
   line-height: 1;
-
-  color: rgb(0, 0, 0);
 }
 
 input {
